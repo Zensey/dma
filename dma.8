@@ -295,6 +295,24 @@ If
 .Sq MAILNAME
 is an absolute path to a file, the first line of this file will be used
 as the hostname.
+.It Ic MYORIGIN Xo
+.Pq string, default=empty
+.Xc
+Domain appended to sender addresses that do not have one, similar to the
+Postfix parameter of the same name.
+A single-line
+.Ql From:
+header such as
+.Ql From: root
+or
+.Ql From: root (Cron Daemon)
+becomes
+.Ql From: root@origin
+and the envelope-from uses
+.Ar origin
+instead of the host name.
+.Sq MASQUERADE
+takes precedence.
 .It Ic MASQUERADE Xo
 .Pq string, default=empty
 .Xc

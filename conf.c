@@ -204,6 +204,8 @@ parse_conf(const char *config_path)
 			config.features |= LMTP;
 		else if (strcmp(word, "MAILNAME") == 0 && data != NULL)
 			config.mailname = data;
+		else if (strcmp(word, "MYORIGIN") == 0 && data != NULL)
+			config.myorigin = data;
 		else if (strcmp(word, "MASQUERADE") == 0 && data != NULL) {
 			char *user = NULL, *host = NULL;
 			if (strrchr(data, '@')) {

@@ -87,6 +87,7 @@ struct config config = {
 	.mailname	= NULL,
 	.masquerade_host = NULL,
 	.masquerade_user = NULL,
+	.myorigin = NULL,
 	.fingerprint = NULL,
 };
 
@@ -133,7 +134,7 @@ set_from(struct queue *queue, const char *osender)
 		from_user = username;
 	}
 	if (from_host == NULL || strlen(from_host) == 0) {
-		from_host = hostname();
+		from_host = config.myorigin ? config.myorigin : hostname();
 	}
 
 	/* Deal with masquerades. */
